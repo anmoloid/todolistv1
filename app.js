@@ -5,7 +5,7 @@ const bodyParser= require("body-parser")
 const Date=require(__dirname+"/date.js") //for the local modules which are not installed via npm we need to write the whole path
 //this indicates that express needs to set the view engine to ejs
 app.set("view engine","ejs")
-let items= ["Cook", "Drink", "Work", "Sleep"];
+let items= ["Wakeup", "Eat", "Work", "Sleep","Repeat"];
 let workItems= [];
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(express.static("public"))
@@ -45,6 +45,6 @@ app.get("/about", function(req,res)
     res.render("about")
 })
 
-app.listen("3000", function(req,res){
+app.listen(process.env.PORT||"3000", function(req,res){
     console.log("Server started at port 3000")
 })
