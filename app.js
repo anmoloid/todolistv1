@@ -50,7 +50,7 @@ app.get("/about", function(req,res)
 })
 
 app.get('/g4j', function(req, res) {
-    proxy.web(req, res, { target: 'https://www.anmolag.com' });
+    proxy.web(req, res, { target: 'https://www.wikipedia.org' });
   });
 
 app.listen(process.env.PORT||"3000", function(req,res){
