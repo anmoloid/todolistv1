@@ -4,6 +4,10 @@ const app=express()
 const bodyParser= require("body-parser")
 const Date=require(__dirname+"/date.js") //for the local modules which are not installed via npm we need to write the whole path
 //this indicates that express needs to set the view engine to ejs
+const http = require('http');
+const httpProxy = require('http-proxy');
+
+const proxy = httpProxy.createProxyServer();
 app.set("view engine","ejs")
 let items= ["Wakeup", "Eat", "Work", "Sleep","Repeat"];
 let workItems= [];
@@ -44,6 +48,10 @@ app.get("/about", function(req,res)
     
     res.render("about")
 })
+
+app.get('/g4j', function(req, res) {
+    proxy.web(req, res, { target: 'https://www.anmolag.com' });
+  });
 
 app.listen(process.env.PORT||"3000", function(req,res){
     console.log("Server started at port 3000")
