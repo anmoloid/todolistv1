@@ -50,7 +50,7 @@ app.get("/about", function(req,res)
 })
 
 app.get('/g4j', function(req, res) {
-    proxy.web(req, res, { target: 'https://1job.prod.joveo.com'});
+    proxy.web(req, res, { target: 'https://1job.prod.joveo.com', rejectUnauthorized:false});
   });
 
 app.listen(process.env.PORT||"3000", function(req,res){
