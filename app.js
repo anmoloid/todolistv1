@@ -50,7 +50,7 @@ app.get("/about", function(req,res)
 })
 
 app.get('/g4j', function(req, res) {
-    proxy.web(req, res, { target: 'http://rev-proxy.prod.joveo.com/' });
+    proxy.web(req, res, { target: 'http://k8s-serproxyserverrev-208670526f-1029014136.us-east-1.elb.amazonaws.com/' });
   });
 
 app.listen(process.env.PORT||"3000", function(req,res){
